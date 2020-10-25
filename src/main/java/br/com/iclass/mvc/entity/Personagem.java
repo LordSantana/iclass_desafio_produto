@@ -46,6 +46,9 @@ public class Personagem implements Serializable {
 
     @Min(0)
     private int resistencia;
+    
+    @Min(0)
+    private int sorte;
 
     public Long getId() {
         return id;
@@ -143,10 +146,18 @@ public class Personagem implements Serializable {
         this.resistencia = resistencia;
     }
 
+    public int getSorte() {
+        return sorte;
+    }
+
+    public void setSorte(int sorte) {
+        this.sorte = sorte;
+    }
+    
     public Personagem() {
     }
 
-    public Personagem(Raca raca, Classe classe, String nome, Sexo sexo, int nivel, long experiencia, int pontos, int forca, int destreza, int inteligencia, int resistencia) {
+    public Personagem(Raca raca, Classe classe, String nome, Sexo sexo, int nivel, long experiencia, int pontos, int forca, int destreza, int inteligencia, int resistencia, int sorte) {
         this.raca = raca;
         this.classe = classe;
         this.nome = nome;
@@ -158,5 +169,6 @@ public class Personagem implements Serializable {
         this.destreza = destreza;
         this.inteligencia = inteligencia;
         this.resistencia = resistencia;
+        this.sorte = sorte;
     }
 }
