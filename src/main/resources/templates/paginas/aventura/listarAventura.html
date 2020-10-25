@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Desafio IClass</title>
+	
+    <!-- Bootstrap core CSS -->
+    <link href="../../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+
+    <!-- Font-awesome CSS -->
+    <link href="../../../static/fontawesome/css/all.min.css" rel="stylesheet" th:href="@{/fontawesome/css/all.min.css}"/>
+
+    <!-- RPG-awesome CSS https://nagoshiashumari.github.io/Rpg-Awesome/ -->
+    <link href="../../../static/rpgawesome/css/rpg-awesome.min.css" rel="stylesheet" th:href="@{/rpgawesome/css/rpg-awesome.min.css}"/>
+	
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<br/>
+	<div class="container" style="text-align: center;width: 100%"><h3>Lista Aventuras</h3></div>
+	<hr /><br>
+	<!--<h3>Lista de Personagens</h3>-->
+
+	<div th:unless="${#lists.isEmpty(aventuras)}" class="container-fluid">
+
+	    <table id="tableClient" class="table table-bordered table-striped">
+	        <thead>
+	        <tr>
+	            <th><a class="fas fa-plus btn btn-primary btn-sm" href="/adicionaPersonagem" title="Adicionar"></a></th>
+	            <th class="col-sm-3" data-field="detalhe">Detalhe</th>
+	            <th class="col-sm-2" data-field="XP">XP</th>
+	            
+	        </tr>
+	        </thead>
+	        <tr th:each="personagem : ${personagens}">
+	        </table>
+
+</div>
+
+</body>
+</html>

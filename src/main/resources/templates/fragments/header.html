@@ -23,6 +23,12 @@
             <li class="nav-item" th:classappend="${module == 'itemPersonagens' ? 'active' : ''}">
                 <a class="nav-link" href="#" th:href="@{/listarItemPersonagens}">Item de Personagens</a>
             </li>
+             <li class="nav-item" th:classappend="${module == 'aventuras' ? 'active' : ''}">
+                <a class="nav-link" href="#" th:href="@{/listarAventura}">Aventura</a>
+            </li>
+            <li class="nav-item" th:classappend="${module == 'itemPersonagens' ? 'active' : ''}">
+                <a class="nav-link" href="#" th:href="@{/listarItemPersonagens}">Aventuras dos Personagens</a>
+            </li>
         </ul>
     </div>
 </nav>

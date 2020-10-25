@@ -1,6 +1,7 @@
 package br.com.iclass.mvc.application;
 
 import br.com.iclass.mvc.entity.*;
+import br.com.iclass.mvc.repository.AventuraRepository;
 import br.com.iclass.mvc.repository.ItemPersonagemRepository;
 import br.com.iclass.mvc.repository.ItemRepository;
 import br.com.iclass.mvc.repository.PersonagemRepository;
@@ -30,6 +31,9 @@ public class Application implements CommandLineRunner {
 
     @Autowired
     ItemRepository itemRepository;
+    
+    @Autowired
+    AventuraRepository aventuraRepository;
 
     @Autowired
     private ItemPersonagemRepository itemPersonagemRepository;
@@ -47,6 +51,9 @@ public class Application implements CommandLineRunner {
         item = new Item("Espada Elucidator", Material.FERRO, null, 10D, 2,0,TipoItemEnum.ARMAMENTO);
         salvaItemPersonagem(personagem, item, 50);
 
+        
+        Aventura aventura = new Aventura("Cidade dos Mortos", 100);
+        aventuraRepository.save(aventura);
         /*
         Busca ItemPersonagem por Personagem Id
 
