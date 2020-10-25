@@ -16,6 +16,9 @@ public class Item implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private Material materialSecundario;
+    
+    @Enumerated(EnumType.STRING)
+    private TipoItemEnum tipoItem;
 
     private Double peso;
 
@@ -78,16 +81,25 @@ public class Item implements Serializable {
     public void setBonusResistencia(int bonusResistencia) {
         this.bonusResistencia = bonusResistencia;
     }
+    
+    public TipoItemEnum getTipoItem() {
+		return tipoItem;
+	}
+
+	public void setTipoItem(TipoItemEnum tipoItem) {
+		this.tipoItem = tipoItem;
+	}
 
     public Item() {
     }
 
-    public Item(String detalhe, Material materialPrimario, Material materialSecundario, Double peso, int bonusDestreza, int bonusResistencia) {
+    public Item(String detalhe, Material materialPrimario, Material materialSecundario, Double peso, int bonusDestreza, int bonusResistencia, TipoItemEnum tipoItem) {
         this.detalhe = detalhe;
         this.materialPrimario = materialPrimario;
         this.materialSecundario = materialSecundario;
         this.peso = peso;
         this.bonusDestreza = bonusDestreza;
         this.bonusResistencia = bonusResistencia;
+        this.tipoItem = tipoItem;
     }
 }

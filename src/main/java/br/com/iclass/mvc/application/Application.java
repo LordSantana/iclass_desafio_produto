@@ -37,14 +37,14 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Personagem personagem = new Personagem(Raca.HUMANO, Classe.GUERREIRO, "Bertold", Sexo.MASCULINO,
-                1,0,0,16,12,10,14);
+                1,0,0,16,12,10,14, 16);
         personagemRepository.save(personagem);
 
-        Item item = new Item("Machado de Batalha", Material.FERRO, null, 8D, 0,0);
+        Item item = new Item("Machado de Batalha", Material.FERRO, null, 8D, 0,0,TipoItemEnum.ARMAMENTO);
         personagemRepository.save(personagem);
         salvaItemPersonagem(personagem, item, 10);
 
-        item = new Item("Espada Elucidator", Material.FERRO, null, 10D, 2,0);
+        item = new Item("Espada Elucidator", Material.FERRO, null, 10D, 2,0,TipoItemEnum.ARMAMENTO);
         salvaItemPersonagem(personagem, item, 50);
 
         /*

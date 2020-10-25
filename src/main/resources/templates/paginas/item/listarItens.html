@@ -24,6 +24,15 @@
     <form action="#" th:action="@{/adicionaItem}" th:object="${item}" method="post">
 
         <div class="container">
+        	<div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="tipoItem">Tipo do Item</label>
+                </div>
+                <select class="custom-select" id="tipoItem" th:field="*{tipoItem}">
+                    <option value=""></option>
+                    <option th:each="item : ${tipoItens}" th:value="${item.name()}" th:text="${item.name()}"></option>
+                </select>
+            </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="detalhe">Detalhe</label>

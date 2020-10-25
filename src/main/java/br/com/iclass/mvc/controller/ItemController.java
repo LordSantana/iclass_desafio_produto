@@ -2,6 +2,7 @@ package br.com.iclass.mvc.controller;
 
 import br.com.iclass.mvc.entity.Item;
 import br.com.iclass.mvc.entity.Material;
+import br.com.iclass.mvc.entity.TipoItemEnum;
 import br.com.iclass.mvc.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,11 +21,13 @@ public class ItemController {
     private ItemRepository itemRepository;
     private Item item;
     private Material[] materials;
+    private TipoItemEnum[] tipoItens;
 
     @Autowired
     public ItemController(ItemRepository prItemRepository) {
         this.itemRepository = prItemRepository;
         materials = Material.values();
+        tipoItens = TipoItemEnum.values();
     }
 
     @RequestMapping(value = "/adicionaItem", method = RequestMethod.POST)
@@ -38,6 +41,7 @@ public class ItemController {
     @RequestMapping(value = "/listarItens", method = RequestMethod.GET)
     public String listaPersonagens(Model model) {
         model.addAttribute("materials", materials);
+        model.addAttribute("tipoItens", tipoItens);
         item = new Item();
 
         model.addAttribute("item", item);
