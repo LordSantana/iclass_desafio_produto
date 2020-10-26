@@ -49,6 +49,29 @@
 </div>
 
 
+<div th:replace="fragments/header :: header"></div>
+	<br/>
+	<div class="container" style="text-align: center;width: 100%"><h3>Lista Aventuras</h3></div>
+	<hr /><br>
+	<!--<h3>Lista de Personagens</h3>-->
+
+	<div th:unless="${#lists.isEmpty(aventuras)}" class="container-fluid">
+
+	    <table id="tableClient" class="table table-bordered table-striped">
+	        <thead>
+	        <tr>
+	            <th><a class="fas fa-plus btn btn-primary btn-sm" href="/adicionaPersonagem" title="Adicionar"></a></th>
+	            <th class="col-sm-3" data-field="detalhe">Detalhe</th>
+	            <th class="col-sm-2" data-field="XP">XP</th>
+	            
+	        </tr>
+	        </thead>
+	        <tr th:each="aventura : ${aventuras}">
+            <tr "Não tem nada aqui!">
+	        </table>
+
+</div>
+
 <div th:if="${#lists.isEmpty(personagens)}">
     <p>NÃ£o existem personagens cadastrados</p>
 </div>

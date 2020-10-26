@@ -13,13 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import br.com.iclass.mvc.entity.Aventura;
 import br.com.iclass.mvc.repository.AventuraRepository;
 
-@Controller(value = "aventuras")
+@Controller()
 @RequestMapping("/")
 public class AventuraController {
 	
 	private AventuraRepository aventuraRepository;
 	private Aventura aventura;
 	
+	String module() {
+		return "aventuras";
+	}
 	
 	@Autowired
 	public AventuraController(AventuraRepository prAventuraRepository) {
@@ -32,13 +35,15 @@ public class AventuraController {
 	}
 	
 	@RequestMapping(value = "/listarAventuras", method = RequestMethod.GET)
-	public void listarAventuras(Model model) {
+	public String listarAventuras(Model model) {
 		Aventura aventura = new Aventura();
 		model.addAttribute("aventura",aventura);
 		
 		List<Aventura> listaAventuras = aventuraRepository.findAll();
 		if(listaAventuras.size() > 0) {
-			model.addAllAttributes(listaAventuras);
+			model.addAttribute("aventuras",listaAventuras);
 		}
+		
+		return "/paginas/personagem/listarAventuras";
 	}
 }
